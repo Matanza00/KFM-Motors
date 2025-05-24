@@ -29,14 +29,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-automotive-blue rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">K</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-automotive-charcoal">K F M Motors</h1>
-              <p className="text-xs text-automotive-silver">LTD</p>
-            </div>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="/lovable-uploads/4ee02c76-5c47-4027-a3d5-897205c9c715.png" 
+              alt="K F M Motors LTD Logo" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -45,7 +43,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.href}
-                className={`text-sm font-medium transition-colors hover:text-automotive-blue ${
+                className={`text-sm font-medium font-poppins transition-colors hover:text-automotive-blue ${
                   isActive(item.href) 
                     ? 'text-automotive-blue border-b-2 border-automotive-blue' 
                     : 'text-automotive-charcoal'
@@ -60,11 +58,11 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <a 
               href="tel:+254722666581" 
-              className="text-automotive-blue font-semibold hover:text-automotive-blue/80 transition-colors"
+              className="text-automotive-blue font-semibold font-poppins hover:text-automotive-blue/80 transition-colors"
             >
               +254 722 666 581
             </a>
-            <Button className="bg-automotive-blue hover:bg-automotive-blue/90">
+            <Button className="bg-automotive-blue hover:bg-automotive-blue/90 font-poppins">
               Get Quote
             </Button>
           </div>
@@ -86,7 +84,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-automotive-blue ${
+                  className={`text-sm font-medium font-poppins transition-colors hover:text-automotive-blue ${
                     isActive(item.href) ? 'text-automotive-blue' : 'text-automotive-charcoal'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
@@ -97,11 +95,11 @@ const Header = () => {
               <div className="pt-4 border-t">
                 <a 
                   href="tel:+254722666581" 
-                  className="block text-automotive-blue font-semibold mb-3"
+                  className="block text-automotive-blue font-semibold font-poppins mb-3"
                 >
                   +254 722 666 581
                 </a>
-                <Button className="w-full bg-automotive-blue hover:bg-automotive-blue/90">
+                <Button className="w-full bg-automotive-blue hover:bg-automotive-blue/90 font-poppins">
                   Get Quote
                 </Button>
               </div>

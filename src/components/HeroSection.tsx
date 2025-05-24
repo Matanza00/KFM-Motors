@@ -15,29 +15,29 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
         <div className="animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight font-montserrat">
             Elevate Every Drive
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl font-light mb-4 text-gray-200">
+          <p className="text-xl md:text-2xl lg:text-3xl font-light mb-4 text-gray-200 font-poppins">
             Discover Kelowna's Best Rates on
           </p>
-          <p className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8 text-automotive-gold">
+          <p className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8 text-automotive-gold font-montserrat">
             Rentals, Leases & Financing
           </p>
         </div>
 
         <div className="animate-slide-in-left">
-          <p className="text-lg md:text-xl mb-8 text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl mb-8 text-gray-300 max-w-3xl mx-auto font-poppins">
             No surprises. Just the perfect car and plan, delivered in minutes. 
             Kelowna's trusted automotive partner since day one.
           </p>
         </div>
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="bg-automotive-blue hover:bg-automotive-blue/90 text-lg px-8 py-4">
+          <Button size="lg" className="bg-automotive-blue hover:bg-automotive-blue/90 text-lg px-8 py-4 font-poppins">
             Browse Inventory
           </Button>
-          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-automotive-charcoal text-lg px-8 py-4">
+          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-automotive-charcoal text-lg px-8 py-4 font-poppins">
             Get Pre-Approved
           </Button>
         </div>
@@ -45,16 +45,16 @@ const HeroSection = () => {
         {/* Trust Indicators */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-center animate-fade-in">
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <p className="text-2xl font-bold text-automotive-gold">$49/day</p>
-            <p className="text-sm text-gray-300">Rental Starting From</p>
+            <p className="text-2xl font-bold text-automotive-gold font-montserrat">$49/day</p>
+            <p className="text-sm text-gray-300 font-poppins">Rental Starting From</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <p className="text-2xl font-bold text-automotive-gold">5 Minutes</p>
-            <p className="text-sm text-gray-300">Finance Approval</p>
+            <p className="text-2xl font-bold text-automotive-gold font-montserrat">5 Minutes</p>
+            <p className="text-sm text-gray-300 font-poppins">Finance Approval</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
-            <p className="text-2xl font-bold text-automotive-gold">$299/mo</p>
-            <p className="text-sm text-gray-300">Leases Starting From</p>
+            <p className="text-2xl font-bold text-automotive-gold font-montserrat">$299/mo</p>
+            <p className="text-sm text-gray-300 font-poppins">Leases Starting From</p>
           </div>
         </div>
       </div>
