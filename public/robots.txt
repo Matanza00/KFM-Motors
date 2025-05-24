@@ -1,14 +1,24 @@
+
+User-agent: *
+Allow: /
+
+# SEO optimizations
+Sitemap: https://kfmmotors.com/sitemap.xml
+
+# Block access to admin areas
+Disallow: /admin/
+Disallow: /api/
+
+# Allow search engines to index all public content
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
+# Social media crawlers
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
 Allow: /
