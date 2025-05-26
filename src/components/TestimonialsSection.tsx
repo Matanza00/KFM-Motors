@@ -28,8 +28,8 @@ const TestimonialsSection = () => {
       service: "Fleet Services"
     },
     {
-      name: "Mark Robertson",
-      location: "Vernon",
+      name: "Faraz Ahmed",
+      location: "London",
       text: "Leased my dream BMW through K F M Motors. The monthly payments fit my budget perfectly, and the process was straightforward. Highly recommend!",
       rating: 5,
       service: "Vehicle Leasing"

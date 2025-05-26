@@ -13,16 +13,16 @@ const ServicesSection = () => {
       description: "From daily adventures to extended trips, our diverse fleet has you covered. No hidden fees, just reliable wheels when you need them.",
       features: ["Daily & weekly rates", "Free pickup/delivery", "100-point inspection"],
       cta: "Browse Rentals",
-      link: "/services/rental"
+      link: "/contact"
     },
     {
       icon: CreditCard,
       title: "Auto Financing",
       hook: "Credit challenged? No problem.",
-      description: "Get behind the wheel today with flexible financing options. We work with all credit levels to find your perfect payment plan.",
+      description: "Get behind the wheel today with flexible financing options. We work with all credit levels to find your perfect payment plan. View Inventory",
       features: ["Rates from 3.9% APR", "0% down options", "Same-day approval"],
       cta: "Get Pre-Approved",
-      link: "/services/financing"
+      link: "/contact"
     },
     {
       icon: Calendar,
@@ -31,7 +31,7 @@ const ServicesSection = () => {
       description: "Experience the latest models with affordable monthly payments. Perfect for those who love upgrading to the newest features.",
       features: ["Latest model years", "Lower monthly payments", "Warranty included"],
       cta: "View Lease Deals",
-      link: "/services/leasing"
+      link: "/contact"
     },
     {
       icon: Users,
@@ -40,7 +40,7 @@ const ServicesSection = () => {
       description: "Streamline your business operations with our comprehensive fleet solutions. Volume discounts and dedicated account management.",
       features: ["Volume pricing", "Fleet management", "24/7 support"],
       cta: "Fleet Solutions",
-      link: "/services/fleet"
+      link: "/contact"
     }
   ];
 

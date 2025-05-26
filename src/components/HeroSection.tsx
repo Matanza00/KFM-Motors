@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -34,12 +35,16 @@ const HeroSection = () => {
         </div>
 
         <div className="animate-scale-in flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link to= '/inventory'>
           <Button size="lg" className="bg-automotive-blue hover:bg-automotive-blue/90 text-lg px-8 py-4 font-poppins">
             Browse Inventory
           </Button>
+          </Link>
+          <Link to= '/contact'>
           <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-automotive-charcoal text-lg px-8 py-4 font-poppins">
             Get Pre-Approved
           </Button>
+          </Link>
         </div>
 
         {/* Trust Indicators */}

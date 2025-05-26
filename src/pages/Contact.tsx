@@ -7,10 +7,12 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
-import { MapPin, Phone, Clock, Mail } from 'lucide-react';
-import { useState } from 'react';
+import { MapPin, Phone, Clock, Mail, CheckCircle, AlertCircle } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,12 +20,43 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  const [toast, setToast] = useState<{
+    visible: boolean;
+    message: string;
+    type: 'success' | 'error';
+  }>({ visible: false, message: '', type: 'success' });
+
+  // helper to show & auto-hide toast
+  const showToast = (message: string, type: 'success' | 'error' = 'success') => {
+    setToast({ visible: true, message, type });
+    setTimeout(() => setToast(t => ({ ...t, visible: false })), 3000);
+  };
+
+  useEffect(() => {
+    // Initialize EmailJS with *your* User ID
+    emailjs.init('FONpZ7dCSmHo5ifXW');
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+    if (!formRef.current) return;
+
+    emailjs
+      .sendForm(
+        'service_rb9pjm7',    // ← your Service ID
+        'template_po9f96d',   // ← your Template ID
+        formRef.current       // ← the <form> ref
+      )
+      .then(() => {
+        showToast('Message sent! We’ll be in touch within 24h.', 'success');
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err);
+        alert('❌ Could not send message. Please try again later.');
+      });
   };
+
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -56,87 +89,99 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-bold text-automotive-charcoal mb-8">Get in Touch</h2>
-              <Card className="shadow-lg border-0">
-                <CardHeader>
-                  <CardTitle>Send us a Message</CardTitle>
-                  <CardDescription>
-                    Fill out the form below and we'll get back to you within 24 hours.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="name">Full Name *</Label>
-                        <Input
-                          id="name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange('name', e.target.value)}
-                          placeholder="Your full name"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="phone">Phone Number *</Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) => handleInputChange('phone', e.target.value)}
-                          placeholder="(250) 123-4567"
-                          required
-                        />
-                      </div>
-                    </div>
+            <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-automotive-charcoal mb-8">Get in Touch</h2>
+          <Card className="shadow-lg border-0">
+            <CardHeader>
+              <CardTitle>Send us a Message</CardTitle>
+              <CardDescription>
+                Fill out the form below and we'll get back to you within 24 hours.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="name">Full Name *</Label>
+                    <Input
+                      id="name"
+                      name="user_name"
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="phone">Phone Number *</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      placeholder="(250) 123-4567"
+                      required
+                    />
+                  </div>
+                </div>
 
-                    <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                    </div>
+                <div>
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input
+                    id="email"
+                    name="user_email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange('email', e.target.value)}
+                    placeholder="your.email@example.com"
+                    required
+                  />
+                </div>
 
-                    <div>
-                      <Label htmlFor="service">Interested In</Label>
-                      <Select onValueChange={(value) => handleInputChange('service', value)}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="rental">Car Rental</SelectItem>
-                          <SelectItem value="financing">Auto Financing</SelectItem>
-                          <SelectItem value="leasing">Vehicle Leasing</SelectItem>
-                          <SelectItem value="fleet">Fleet Services</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
+                {/* hidden field to pass service selection */}
+                <input type="hidden" name="service" value={formData.service} />
 
-                    <div>
-                      <Label htmlFor="message">Message</Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => handleInputChange('message', e.target.value)}
-                        placeholder="Tell us how we can help you..."
-                        rows={4}
-                      />
-                    </div>
+                <div>
+                  <Label htmlFor="service">Interested In</Label>
+                  <Select
+                    onValueChange={(value) => handleInputChange('service', value)}
+                  >
+                    <SelectTrigger id="service">
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Car Rental">Car Rental</SelectItem>
+                      <SelectItem value="Auto Financing">Auto Financing</SelectItem>
+                      <SelectItem value="Vehicle Leasing">Vehicle Leasing</SelectItem>
+                      <SelectItem value="Fleet Services">Fleet Services</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
 
-                    <Button type="submit" className="w-full bg-automotive-blue hover:bg-automotive-blue/90">
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    placeholder="Tell us how we can help you..."
+                    rows={4}
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-automotive-blue hover:bg-automotive-blue/90"
+                >
+                  Send Message
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
 
             {/* Contact Information */}
             <div className="space-y-8">
@@ -232,23 +277,24 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Map Section */}
+     {/* Map Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-automotive-charcoal mb-8">Find Us</h2>
+          <h2 className="text-3xl font-bold text-center text-automotive-charcoal mb-8">
+            Find Us
+          </h2>
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="h-96 bg-gray-200 flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-automotive-blue mx-auto mb-4" />
-                <p className="text-gray-600">
-                  Interactive map would be embedded here<br />
-                  880 Leathead Road, Kelowna, BC V1X 2JX
-                </p>
-              </div>
-            </div>
+            <iframe
+              title="K F M Motors Location"
+              className="w-full h-96 border-0"
+              loading="lazy"
+              src="https://www.google.com/maps?q=880%20Leathead%20Road%2C%20Kelowna%2C%20BC%20V1X2JX&output=embed"
+              allowFullScreen
+            />
           </div>
         </div>
       </section>
+
 
       {/* Emergency Contact */}
       <section className="py-16 bg-automotive-charcoal text-white">
@@ -259,12 +305,38 @@ const Contact = () => {
           <p className="text-xl mb-8 text-gray-300">
             Our 24/7 roadside assistance is here when you need it most.
           </p>
-          <Button size="lg" className="bg-automotive-gold hover:bg-automotive-gold/90 text-automotive-charcoal">
-            <Phone className="mr-2" size={20} />
-            Emergency Hotline: +254 722 666 581
+          <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-automotive-blue"
+            >
+              <a href="tel:+254722666581">
+                <Phone className="mr-2 inline-block" size={20} />
+                Emergency Hotline: +254 722 666 581
+              </a>
           </Button>
         </div>
       </section>
+
+      {/* Toast */}
+      {toast.visible && (
+        <div
+          className={`
+            fixed bottom-6 right-6 flex items-center space-x-3 px-4 py-2 rounded-lg shadow-lg
+            ${toast.type === 'success'
+              ? 'bg-green-500 text-white'
+              : 'bg-red-500 text-white'}
+          `}
+        >
+          {toast.type === 'success' ? (
+            <CheckCircle className="w-5 h-5" />
+          ) : (
+            <AlertCircle className="w-5 h-5" />
+          )}
+          <span className="font-medium">{toast.message}</span>
+        </div>
+      )}
 
       <Footer />
     </div>

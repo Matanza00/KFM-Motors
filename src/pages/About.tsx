@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -37,7 +38,7 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Founded in 2009 by the Kamau family, K F M Motors LTD began with a simple mission: 
+                  Founded in 2009 by the Jabbar family, K F M Motors LTD began with a simple mission: 
                   to make quality vehicles accessible to every member of our community. What started 
                   with just five used cars has evolved into a comprehensive automotive service center.
                 </p>
@@ -50,7 +51,7 @@ const About = () => {
                 <p>
                   From weekend warriors seeking rental cars for ski trips to families financing 
                   their first vehicle, we've been there for every milestone. Our team understands 
-                  that a car isn't just transportation—it's freedom, opportunity, and connection.
+                  that a car isn't just transportation, it's freedom, opportunity, and connection.
                 </p>
               </div>
             </div>
@@ -126,7 +127,7 @@ const About = () => {
               <div className="w-32 h-32 bg-automotive-blue/10 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-4xl">👨‍💼</span>
               </div>
-              <h3 className="text-xl font-bold text-automotive-charcoal mb-2">Francis Kamau</h3>
+              <h3 className="text-xl font-bold text-automotive-charcoal mb-2">Abdul Jabbar</h3>
               <p className="text-automotive-blue font-medium mb-2">Founder & General Manager</p>
               <p className="text-gray-600 text-sm">
                 15+ years in automotive sales and financing. Passionate about connecting 
@@ -138,7 +139,7 @@ const About = () => {
               <div className="w-32 h-32 bg-automotive-blue/10 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-4xl">👩‍💼</span>
               </div>
-              <h3 className="text-xl font-bold text-automotive-charcoal mb-2">Mary Kamau</h3>
+              <h3 className="text-xl font-bold text-automotive-charcoal mb-2">Sofia Jabbar</h3>
               <p className="text-automotive-blue font-medium mb-2">Finance Manager</p>
               <p className="text-gray-600 text-sm">
                 Specializes in finding financing solutions for all credit situations. 
@@ -150,7 +151,7 @@ const About = () => {
               <div className="w-32 h-32 bg-automotive-blue/10 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-4xl">👨‍🔧</span>
               </div>
-              <h3 className="text-xl font-bold text-automotive-charcoal mb-2">Mike Thompson</h3>
+              <h3 className="text-xl font-bold text-automotive-charcoal mb-2">Ahmed Jabbar</h3>
               <p className="text-automotive-blue font-medium mb-2">Service Manager</p>
               <p className="text-gray-600 text-sm">
                 Certified mechanic ensuring every vehicle meets our 100-point quality standards. 
@@ -204,12 +205,16 @@ const About = () => {
             Experience the difference that 15 years of automotive expertise makes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to='/inventory'>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-automotive-blue">
               Visit Our Showroom
             </Button>
+            </Link>
+            <Link to='/inventory'>
             <Button size="lg" className="bg-automotive-gold hover:bg-automotive-gold/90 text-automotive-charcoal">
               Browse Inventory
             </Button>
+            </Link>
           </div>
         </div>
       </section>

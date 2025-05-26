@@ -7,6 +7,12 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Phone, Clock, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+
+const mapsUrl = 
+  'https://www.google.com/maps/dir/?api=1' +
+  '&destination=' + encodeURIComponent('880 Leathead Road, Kelowna, BC V1X2JX');
 
 const Index = () => {
   return (
@@ -29,9 +35,16 @@ const Index = () => {
             Get pre-approved in 3 minutes or speak with our automotive experts now.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-automotive-blue">
-              <Phone className="mr-2" size={20} />
-              Call Now: +254 722 666 581
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-automotive-blue"
+            >
+              <a href="tel:+254722666581">
+                <Phone className="mr-2 inline-block" size={20} />
+                Call Now: +254 722 666 581
+              </a>
             </Button>
             <Button size="lg" className="bg-automotive-gold hover:bg-automotive-gold/90 text-automotive-charcoal">
               Get Pre-Approved Online
@@ -55,10 +68,20 @@ const Index = () => {
               <CardContent>
                 <p className="text-gray-600 mb-4">
                   880 Leathead Road<br />
-                  Kelowna, BC V1X 2JX
+                  Kelowna, BC V1X2JX
                 </p>
-                <Button variant="outline" className="border-automotive-blue text-automotive-blue hover:bg-automotive-blue hover:text-white">
-                  Get Directions
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-automotive-blue text-automotive-blue hover:bg-automotive-blue hover:text-white"
+                >
+                  <a
+                    href={mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Get Directions
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -90,9 +113,11 @@ const Index = () => {
                   <p>Phone: +254 722 666 581</p>
                   <p>Email: info@kfmmotors.com</p>
                 </div>
-                <Button className="bg-automotive-blue hover:bg-automotive-blue/90">
-                  Start Your Application
-                </Button>
+                <Link to="/contact">
+                  <Button asChild className="bg-automotive-blue hover:bg-automotive-blue/90">
+                    <a>Start Your Application</a>
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           </div>

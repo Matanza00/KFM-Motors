@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Car, CreditCard, Calendar, Users, CheckCircle } from 'lucide-react';
+import { Car, CreditCard, Calendar, Users, CheckCircle, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Services = () => {
@@ -11,6 +11,7 @@ const Services = () => {
     {
       id: 'rental',
       icon: Car,
+      image: '/lovable-uploads/Car-Rental.png',
       title: 'Car Rental',
       hook: 'Weekend escapes? Done.',
       description: 'From daily adventures to extended trips, our diverse fleet has you covered.',
@@ -32,6 +33,7 @@ const Services = () => {
     {
       id: 'financing',
       icon: CreditCard,
+      image: '/lovable-uploads/Auto-Finance.png',
       title: 'Auto Financing',
       hook: 'Credit challenged? No problem.',
       description: 'Get behind the wheel today with flexible financing options that work for you.',
@@ -53,6 +55,7 @@ const Services = () => {
     {
       id: 'leasing',
       icon: Calendar,
+      image: '/lovable-uploads/Vehicle-Lease.png',
       title: 'Vehicle Leasing',
       hook: 'Drive newer. Pay less.',
       description: 'Experience the latest models with affordable monthly payments.',
@@ -74,6 +77,7 @@ const Services = () => {
     {
       id: 'fleet',
       icon: Users,
+      image: '/lovable-uploads/Fleet-b2b.png',
       title: 'Fleet & B2B Services',
       hook: 'Corporate fleet experts.',
       description: 'Streamline your business operations with comprehensive fleet solutions.',
@@ -164,21 +168,25 @@ const Services = () => {
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link to={`/services/${service.id}`}>
                       <Button className="bg-automotive-blue hover:bg-automotive-blue/90">
                         Learn More
                       </Button>
-                    </Link>
+                    <Link to='/contact'>
                     <Button variant="outline" className="border-automotive-blue text-automotive-blue hover:bg-automotive-blue hover:text-white">
                       Get Quote
                     </Button>
+                    </Link>
                   </div>
                 </div>
 
                 <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
                   <Card className="overflow-hidden shadow-xl">
                     <div className="h-80 bg-gradient-to-br from-automotive-blue/10 to-automotive-charcoal/10 flex items-center justify-center">
-                      <service.icon className="w-32 h-32 text-automotive-blue/30" />
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="object-fit"
+                      />
                     </div>
                   </Card>
                 </div>
@@ -264,12 +272,22 @@ const Services = () => {
             Contact our automotive experts today and discover why Kelowna trusts K F M Motors.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-automotive-blue">
-              Call +254 722 666 581
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-automotive-blue"
+            >
+              <a href="tel:+254722666581">
+                <Phone className="mr-2 inline-block" size={20} />
+                Call Now: +254 722 666 581
+              </a>
             </Button>
-            <Button size="lg" className="bg-automotive-gold hover:bg-automotive-gold/90 text-automotive-charcoal">
-              Get Quote Online
-            </Button>
+            <Link to='/contact'>
+              <Button size="lg" className="bg-automotive-gold hover:bg-automotive-gold/90 text-automotive-charcoal">
+                Get Quote Online
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
