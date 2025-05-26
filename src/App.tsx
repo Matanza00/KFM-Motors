@@ -10,6 +10,7 @@ import Services from "./pages/Services";
 import Inventory from "./pages/Inventory";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { ScrollToTop } from '@/components/ScrollToTop';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+       <ScrollToTop />    {/* ← this makes every route change scroll to top */}
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

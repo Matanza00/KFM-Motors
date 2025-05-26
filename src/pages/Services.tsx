@@ -278,9 +278,9 @@ const Services = () => {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-automotive-blue"
             >
-              <a href="tel:+254722666581">
+              <a href="tel:+6137703569">
                 <Phone className="mr-2 inline-block" size={20} />
-                Call Now: +254 722 666 581
+                Call Now: +613 770 3569
               </a>
             </Button>
             <Link to='/contact'>

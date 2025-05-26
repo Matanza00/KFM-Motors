@@ -1,4 +1,5 @@
 
+import { Mail, MapPin, Phone, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -20,11 +21,28 @@ const Footer = () => {
               Serving Kelowna and the Okanagan Valley with excellence since day one.
             </p>
             <div className="space-y-2 text-sm font-poppins">
-              <p>📍 880 Leathead Road, Kelowna, BC V1X 2JX</p>
-              <p>📞 <a href="tel:+254722666581" className="hover:text-automotive-blue transition-colors">+254 722 666 581</a></p>
-              <p>✉️ <a href="mailto:info@kfmmotors.com" className="hover:text-automotive-blue transition-colors">info@kfmmotors.com</a></p>
-              <p className="text-automotive-gold font-medium">Owner: Abdul Jabbar</p>
+            <div className="flex items-center">
+              <MapPin className="w-5 h-5 text-automotive-gold mr-2" />
+              <span>880 Leathead Road, Kelowna, BC V1X 2JX</span>
             </div>
+            <div className="flex items-center">
+              <Phone className="w-5 h-5 text-automotive-gold mr-2" />
+              <a href="tel:+254722666581" className="hover:text-automotive-blue transition-colors">
+                +613 770 3569
+              </a>
+            </div>
+            <div className="flex items-center">
+              <Mail className="w-5 h-5 text-automotive-gold mr-2" />
+              <a href="mailto:info@kfmmotors.com" className="hover:text-automotive-blue transition-colors">
+                info@kfmmotors.com
+              </a>
+            </div>
+            <div className="flex items-center">
+              <User className="w-5 h-5 text-automotive-gold mr-2" />
+              <span className="text-automotive-white font-medium">Owner: Abdul Jabbar</span>
+            </div>
+          </div>
+
           </div>
 
           {/* Quick Links */}

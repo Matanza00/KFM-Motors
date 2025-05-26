@@ -41,9 +41,9 @@ const Index = () => {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-automotive-blue"
             >
-              <a href="tel:+254722666581">
+              <a href="tel:+6137703569">
                 <Phone className="mr-2 inline-block" size={20} />
-                Call Now: +254 722 666 581
+                Call Now: +613 770 3569
               </a>
             </Button>
             <Button size="lg" className="bg-automotive-gold hover:bg-automotive-gold/90 text-automotive-charcoal">
@@ -110,7 +110,7 @@ const Index = () => {
               </CardHeader>
               <CardContent>
                 <div className="text-gray-600 space-y-2 mb-4">
-                  <p>Phone: +254 722 666 581</p>
+                  <p>Phone: +613 770 3569</p>
                   <p>Email: info@kfmmotors.com</p>
                 </div>
                 <Link to="/contact">

@@ -11,6 +11,10 @@ import { MapPin, Phone, Clock, Mail, CheckCircle, AlertCircle } from 'lucide-rea
 import { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+const mapsUrl = 
+  'https://www.google.com/maps/dir/?api=1' +
+  '&destination=' + encodeURIComponent('880 Leathead Road, Kelowna, BC V1X2JX');
+
 const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
@@ -196,13 +200,25 @@ const Contact = () => {
                         </div>
                         <div>
                           <h3 className="font-semibold text-automotive-charcoal mb-2">Visit Our Showroom</h3>
-                          <p className="text-gray-600 mb-2">
-                            880 Leathead Road<br />
-                            Kelowna, BC V1X 2JX
-                          </p>
-                          <Button variant="outline" size="sm" className="border-automotive-blue text-automotive-blue hover:bg-automotive-blue hover:text-white">
-                            Get Directions
-                          </Button>
+                          <CardContent>
+                                          <p className="text-gray-600 mb-4">
+                                            880 Leathead Road<br />
+                                            Kelowna, BC V1X2JX
+                                          </p>
+                                          <Button
+                                            asChild
+                                            variant="outline"
+                                            className="border-automotive-blue text-automotive-blue hover:bg-automotive-blue hover:text-white"
+                                          >
+                                            <a
+                                              href={mapsUrl}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                            >
+                                              Get Directions
+                                            </a>
+                                          </Button>
+                                        </CardContent>
                         </div>
                       </div>
                     </CardContent>
@@ -217,8 +233,8 @@ const Contact = () => {
                         <div>
                           <h3 className="font-semibold text-automotive-charcoal mb-2">Call Us</h3>
                           <p className="text-gray-600 mb-2">
-                            <a href="tel:+254722666581" className="text-automotive-blue hover:underline">
-                              +254 722 666 581
+                            <a href="tel:+6137703569" className="text-automotive-blue hover:underline">
+                              +613 770 3569
                             </a>
                           </p>
                           <p className="text-sm text-gray-500">
@@ -311,9 +327,9 @@ const Contact = () => {
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-automotive-blue"
             >
-              <a href="tel:+254722666581">
+              <a href="tel:+6137703569">
                 <Phone className="mr-2 inline-block" size={20} />
-                Emergency Hotline: +254 722 666 581
+                Emergency Hotline: +613 770 3569
               </a>
           </Button>
         </div>
