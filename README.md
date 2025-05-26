@@ -1,18 +1,13 @@
-# Welcome to your Lovable project
+# Welcome to the project
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/f5d9e323-8b4a-4807-8498-db0f7b91cfe6
+**URL**: kfmmotors.com
 
 ## How can I edit this code?
 
 There are several ways of editing your application.
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/f5d9e323-8b4a-4807-8498-db0f7b91cfe6) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
@@ -24,10 +19,10 @@ Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone https://github.com/Matanza00/KFM-Motors
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd KFM-Motors
 
 # Step 3: Install the necessary dependencies.
 npm i
@@ -62,12 +57,24 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/f5d9e323-8b4a-4807-8498-db0f7b91cfe6) and click on Share -> Publish.
+Refer to this page : https://vercel.com/docs/git/vercel-for-github
 
-## Can I connect a custom domain to my Lovable project?
+## Can I connect a custom domain to my project?
 
 Yes, you can!
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+#Step 1: run build command 
+npm run build
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+#Step 2: Compress your build file "dist" 
+
+#Step 3: Login your hosting platform and move to File Manager
+
+#Step 4: Upload your dist.zip on public_html 
+
+#Step 5: Extract It
+
+#Step 6: Enjoy ! HAPPY CODING
+
+
+View more here: [Setting up a custom domain](https://www.youtube.com/watch?v=ioYCA7AqhYQ)
