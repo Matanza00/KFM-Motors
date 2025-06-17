@@ -78,3 +78,5 @@ npm run build
 
 
 View more here: [Setting up a custom domain](https://www.youtube.com/watch?v=ioYCA7AqhYQ)
+
+Thanks from Ibrahim Siddiqui (KFM Motors)
